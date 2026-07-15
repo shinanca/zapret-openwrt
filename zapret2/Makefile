@@ -54,11 +54,15 @@ else
 endif
 
 UPX_VER:=4.2.4
+UPX_ARCH:=amd64
 ifneq ($(filter riscv64,$(ARCH)),)
   UPX_VER:=5.1.0
 endif
+ifeq ($(filter aarch64,$(ARCH)),)
+  UPX_ARCH:=arm64
+endif
 UPX_URL:=https://github.com/upx/upx/releases/download/v$(UPX_VER)
-UPX_URL_FILE:=upx-$(UPX_VER)-amd64_linux.tar.xz
+UPX_URL_FILE:=upx-$(UPX_VER)-$(UPX_ARCH)_linux.tar.xz
 UPX_TAR:=$(PKG_NAME)-$(UPX_URL_FILE)
 UPX_DIR:=$(PKG_BUILD_DIR)/upx
 UPX_BIN:=$(UPX_DIR)/upx
