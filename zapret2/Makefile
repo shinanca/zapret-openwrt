@@ -12,7 +12,7 @@ PKG_MAINTAINER:=bol-van
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=docs/LICENSE.txt
 
-PKG_SOURCE_URL:=https://github.com/bol-van/zapret2.git
+PKG_SOURCE_URL:=https://github.com/shinanca/zapret-openwrt
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=d3b3011000f103c5af161cc4e3167e80fd6928a2
 PKG_SOURCE_DATE:=2026-03-07
