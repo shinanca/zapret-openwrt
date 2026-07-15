@@ -58,7 +58,7 @@ UPX_ARCH:=amd64
 ifneq ($(filter riscv64,$(ARCH)),)
   UPX_VER:=5.1.0
 endif
-ifeq ($(filter aarch64,$(ARCH)),)
+ifeq ($(filter arm64,$(ARCH)),)
   UPX_ARCH:=arm64
 endif
 UPX_URL:=https://github.com/upx/upx/releases/download/v$(UPX_VER)
@@ -177,10 +177,10 @@ define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)/mdig   $(MAKE_FLAGS)
 ifeq ($(USE_UPX),1)
 	@if [ -x "$(UPX_BIN)" ]; then \
-		echo "Packing nfqws2 with UPX"; \
+		echo "Packing nfqws2 with UPX for $(ARCH)"; \
 		$(UPX_BIN) --best --lzma --strip-relocs=0 $(PKG_BUILD_DIR)/$(MAKE_PATH)/nfqws2; \
 	else \
-		echo "WARNING: UPX not found, skipping packing"; \
+		echo "WARNING: UPX not found for  $(ARCH), skipping packing"; \
 	fi
 else
 	@echo "Skipping UPX for $(ARCH)"
