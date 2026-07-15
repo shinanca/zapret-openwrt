@@ -14,7 +14,7 @@ PKG_LICENSE_FILES:=docs/LICENSE.txt
 
 PKG_SOURCE_URL:=https://github.com/shinanca/zapret-openwrt
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=ea3afe0cdc3005c4f49ef96f6f50516eec9e6351
+PKG_SOURCE_VERSION:=ea598cdb0bab7edb739cbc97429c930e3785cd68
 PKG_SOURCE_DATE:=2026-03-07
 
 #PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
@@ -59,6 +59,9 @@ ifneq ($(filter riscv64,$(ARCH)),)
   UPX_VER:=5.1.0
 endif
 ifeq ($(filter arm64,$(ARCH)),)
+  UPX_ARCH:=arm64
+endif
+ifeq ($(filter aarch64,$(ARCH)),)
   UPX_ARCH:=arm64
 endif
 UPX_URL:=https://github.com/upx/upx/releases/download/v$(UPX_VER)
